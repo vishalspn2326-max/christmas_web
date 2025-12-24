@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Christmas Surprise 🎄</title>
+    <link rel="stylesheet" href="thirdpage.css" />
+</head>
+
+<body>
+
+    <!-- Background effects -->
+    <div class="bg-overlay"></div>
+    <div class="snow"></div>
+
+    <!-- PAGE 1 -->
+    <section class="page active" id="page1">
+        <h1 class="tttttt">Sweet Tic-Tac-Toe</h1>
+
+        <div class="grid">
+            <div class="cell">🍫</div>
+            <div class="cell">🍬</div>
+            <div class="cell">🍭</div>
+            <div class="cell">🍩</div>
+
+            <!-- COOKIE (CLICK THIS) -->
+            <div class="cell cookie" onclick="goToPage(2)">🍪</div>
+
+            <div class="cell">🧁</div>
+            <div class="cell">🍫</div>
+            <div class="cell">🍬</div>
+            <div class="cell">🍭</div>
+        </div>
+
+        <p class="hint">Place the cookie to continue</p>
+    </section>
+
+    <!-- PAGE 2 -->
+    <section class="page" id="page2">
+        <h1 class="tttttt">A Christmas Note</h1>
+
+        <div class="envelope" onclick="goToPage(3)">
+            <div class="heart">❤️</div>
+        </div>
+
+        <p class="hint">Tap to unwrap 🎁</p>
+    </section>
+
+    <!-- PAGE 3 -->
+    <section class="page" id="page3">
+        <p class="top-note">Wrapped Straight From My Heart </p>
+        <h1 class="ttttttt">A Christmas Note 🎄</h1>
+        <div class="note">
+            <span class="tag">💖 MY SWEETEST PERSON</span>
+
+            <h2>Vishakha ji,</h2>
+
+            <p>
+                Christmas feels warmer because of you.<br />
+                You bring comfort, light and calm into my world.
+            </p>
+
+            <div class="signature">Always yours!</div>
+
+
+            <button onclick="goToPage(4)">Continue ✨</button>
+
+        </div>
+    </section>
+    <!-- PAGE 4 -->
+    <section class="page" id="page4">
+        <p class="subtitle">from a sincere heart</p>
+
+        <h1 class="title">
+            ✨ Little Things I Want You To Know 🎄
+        </h1>
+
+        <p class="tap">Tap to flip ❄️</p>
+
+        <div class="cards">
+            <div class="card flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-inner">
+
+                    <!-- FRONT -->
+                    <div class="flip-front pink">
+                        <p>You make<br>everything feel<br>warmer 🤍</p>
+                    </div>
+
+                    <!-- BACK -->
+                    <div class="flip-back">
+                        <img src="/christmas_web/assests/1.jpeg" alt="Christmas Cat" id="firstimg">
+                        <h3>Christmas Feeling:</h3>
+                        <p>Being with you feels like comfort and calm.</p>
+                        <span>🎄</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="card flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-inner">
+
+                    <!-- FRONT -->
+                    <div class="flip-front yellow">
+                        <p>You're cute even<br>when you're annoyed 😆</p>
+                    </div>
+
+                    <!-- BACK -->
+                    <div class="flip-back">
+                        <img src="/christmas_web/assests/2.jpeg" alt="Cute Cat">
+                        <h3>Little Truth:</h3>
+                        <p>Even your angry face makes me smile.</p>
+                        <span>🎁</span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-inner">
+
+                    <!-- FRONT -->
+                    <div class="flip-front blue">
+                        <p>Christmas Coupon:<br>Unlimited hugs 🤗</p>
+                    </div>
+
+                    <!-- BACK -->
+                    <div class="flip-back">
+                        <img src="/christmas_web/assests/3.jpeg" alt="Hug Cat" id="thirdimg">
+                        <h3>Redeem Anytime 💖</h3>
+                        <p>No expiry. No limits. Just hugs.</p>
+                        <span>🎄</span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="next-btn-wrapper">
+           <a href="/christmas_web/fourthpage.html">
+
+               <button class="next-btn" onclick="goNext()">Next →</button>
+            </a>
+            </div>
+    </section>
+
+
+
+    <script src="index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,426 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Fredoka:wght@300..700&family=Shrikhand&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #fff4dc;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Dark overlay */
+.bg-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.08);
+    z-index: 1;
+}
+
+.tttttt {
+    font-size: 60px;
+    color: #ff6b81;
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+}
+
+/* Snow */
+.snow {
+    position: fixed;
+    inset: 0;
+    background-image:
+        radial-gradient(3px 3px at 20px 30px, #fff, transparent),
+        radial-gradient(2px 2px at 80px 120px, #fff, transparent),
+        radial-gradient(3px 3px at 150px 200px, #fff, transparent);
+    background-size: 250px 250px;
+    animation: snowFall 14s linear infinite;
+    pointer-events: none;
+    z-index: 2;
+}
+
+@keyframes snowFall {
+    from {
+        background-position: 0 -250px;
+    }
+
+    to {
+        background-position: 0 250px;
+    }
+}
+
+/* Pages */
+.page {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+    transition: 0.6s ease;
+    z-index: 3;
+}
+
+.page.active {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    gap: 15px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.cell {
+    width: 80px;
+    height: 80px;
+    background: #fff9ec;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    font-size: 30px;
+}
+
+.cookie {
+    cursor: pointer;
+    outline: 3px dashed pink;
+    animation: pulse 1.2s infinite;
+    opacity: 0.6;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Envelope */
+.envelope {
+    width: 450px;
+    height: 250px;
+    background: rgb(255, 213, 220);
+    border-radius: 20px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.heart {
+    font-size: 40px;
+    animation: heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.note .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ff4f9a;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Note */
+.note {
+    width: 520px;
+    background: #fffaf0;
+    padding: 36px 38px 30px;
+    border-radius: 28px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+.note p {
+    font-family: "Comic Sans MS", "Segoe Print", cursive;
+    font-size: 20px;
+    line-height: 1.8;
+    color: #4b5563;
+    margin-bottom: 14px;
+}
+
+.note h3 {
+    text-align: right;
+    color: hotpink;
+}
+
+.note button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 14px;
+    border-radius: 30px;
+    border: none;
+    background: hotpink;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.hint {
+    color: #999;
+    font-size: 14px;
+}
+
+.note .signature {
+    text-align: right;
+    font-size: 28px;
+    font-family: "Comic Sans MS", cursive;
+    color: #ff4f9a;
+    margin-top: 10px;
+}
+
+.note button {
+    margin-top: 28px;
+    width: 100%;
+    padding: 16px;
+    border-radius: 999px;
+    border: none;
+    background: #ff4f9a;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(255, 79, 154, 0.4);
+}
+
+.note img {
+    position: absolute;
+    top: 50px;
+    right: 40px;
+    width: 90px;
+}
+
+.note::after {
+    content: "";
+    position: absolute;
+    top: 24px;
+    right: 18px;
+    width: 6px;
+    height: calc(100% - 120px);
+    background: #ffb3d9;
+    border-radius: 4px;
+}
+
+.note hr {
+    border: none;
+    height: 1px;
+    background: #f3e8d8;
+    margin: 22px 0;
+}
+
+.ttttttt {
+    font-size: 50px;
+    color: #3f3f3f;
+    font-family: "Caveat";
+    font-optical-sizing: auto;
+}
+
+.top-note {
+    color: #ff6b81;
+    font-style: italic;
+    font-size: 25px;
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+}
+
+.subtitle {
+    font-family: cursive;
+    color: hotpink;
+    font-size: 25px;
+    font-family: "Caveat", cursive;
+}
+
+.title {
+    font-size: 55PX;
+    font-weight: 800;
+    color: #1f2937;
+    text-align: center;
+   font-family: "Shrikhand", cursive;
+}
+.tap {
+    color: #888;
+    margin-bottom: 30px;
+     font-family: "Fredoka", sans-serif;
+     font-optical-sizing: auto;
+}
+
+.cards {
+    display: flex;
+    gap: 40px;
+   
+}
+.card p{
+        font-size: 25px;
+      font-family: "Caveat", cursive;
+        font-optical-sizing: auto;
+}
+.flip-back h3,p{
+    font-size: 25px;
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+}
+.card {
+       width: 300px;
+    height: 330px;
+    border-radius: 18px;
+    padding: 20px;
+    font-family: "caveat", cursive;
+    font-size: 20px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card.pink {
+    background: #ffd6e8;
+}
+
+.card.yellow {
+    background: #fff7c2;
+}
+
+.card.blue {
+    background: #e6f4ff;
+}
+
+.flip-card {
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.flip-inner {
+    width: 220px;
+    height: 300px;
+    position: relative;
+    transition: transform 0.8s ease;
+    transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-inner {
+    transform: rotateY(180deg);
+}
+
+/* FRONT & BACK */
+.flip-front,
+.flip-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 18px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-family: "Comic Sans MS", cursive;
+    text-align: center;
+}
+
+/* FRONT */
+.flip-front {
+    background: #ffd6e8;
+    font-size: 20px;
+}
+
+/* BACK */
+.flip-back {
+    background: #ffffff;
+    transform: rotateY(180deg);
+    flex-direction: column;
+    gap: 8px;
+}
+
+.flip-back img {
+    width: 120px;
+    border-radius: 12px;
+}
+
+.flip-back h3 {
+    font-size: 18px;
+    color: #374151;
+}
+
+.flip-back p {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.flip-front.yellow {
+    background: #fff7c2;
+}
+
+.flip-front.blue {
+    background: #e6f3ff;
+}
+
+#thirdimg {
+    height: 140px;
+    margin-top: 8px;
+
+}
+
+#firstimg {
+    margin-top: 9px;
+}
+.next-btn-wrapper {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.next-btn {
+  padding: 14px 36px;
+  font-size: 18px;
+  border: none;
+  border-radius: 40px;
+  background: linear-gradient(135deg, #ff7eb3, #ff758c);
+  color: white;
+  cursor: pointer;
+  font-family: "Comic Sans MS", cursive;
+  box-shadow: 0 10px 25px rgba(255, 120, 160, 0.4);
+  transition: all 0.3s ease;
+}
+
+.next-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(255, 120, 160, 0.6);
+}
+
+.next-btn:active {
+  transform: scale(0.95);
+}

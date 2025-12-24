@@ -1,0 +1,302 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(#0b1224, #1c2b44);
+    overflow: hidden;
+}
+
+.scene {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Clouds */
+.cloud {
+  position: absolute;
+  background: linear-gradient(
+    to bottom,
+    #e5e7eb,
+    #cfd3da
+  );
+  border-radius: 50px;
+  filter: blur(1.5px);        /* 👈 soft blur */
+  opacity: 0.75;
+}
+
+/* Cloud shape using pseudo-elements */
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  background: inherit;
+  border-radius: 50%;
+}
+
+/* Individual clouds */
+.cloud1 {
+  width: 180px;
+  height: 65px;
+  top: 14%;
+  left: 10%;
+}
+
+.cloud1::before {
+  width: 80px;
+  height: 80px;
+  top: -35px;
+  left: 20px;
+}
+
+.cloud1::after {
+  width: 100px;
+  height: 100px;
+  top: -45px;
+  right: 15px;
+}
+
+.cloud2 {
+  width: 140px;
+  height: 55px;
+  top: 10%;
+  right: 35%;
+  opacity: 0.6;
+}
+
+.cloud2::before {
+  width: 60px;
+  height: 60px;
+  top: -25px;
+  left: 18px;
+}
+
+.cloud2::after {
+  width: 80px;
+  height: 80px;
+  top: -35px;
+  right: 12px;
+}
+
+.cloud3 {
+  width: 200px;
+  height: 75px;
+  top: 18%;
+  right: 8%;
+  opacity: 0.65;
+}
+
+.cloud3::before {
+  width: 90px;
+  height: 90px;
+  top: -40px;
+  left: 28px;
+}
+
+.cloud3::after {
+  width: 110px;
+  height: 110px;
+  top: -50px;
+  right: 18px;
+}
+/* Content spacing */
+.content{
+   margin-top: 50px;
+}
+/* Loading text spacing */
+.loading-text {
+    margin-bottom: 25px;
+}
+
+/* .top-image {
+  width: 160px;
+  height: 160px;
+  background:
+    url("/christmas_web/assests/1img.png");
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 25px;
+} */
+.moving-image {
+    position: absolute;
+    top: 25%;
+    /* Merry Christmas ke upar */
+    left: -220px;
+    /* screen ke bahar se start */
+    width: 220px;
+    /* image original size */
+    pointer-events: none;
+    animation: movePauseFade 8s ease-in-out forwards;
+}
+
+.moving-image img {
+    width: 160px;
+    height: 160px;
+
+}
+
+/* Animation */
+@keyframes movePauseFade {
+
+    /* Start: left side */
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    /* Center tak aana */
+    40% {
+        transform: translateX(50vw);
+        opacity: 1;
+    }
+
+    /* Center me rukna (pause effect) */
+    60% {
+        transform: translateX(50vw);
+        opacity: 1;
+    }
+
+    /* Right ki taraf move + fade */
+    100% {
+        transform: translateX(120vw);
+        opacity: 0;
+    }
+}
+
+/* Gift Button */
+.gift-btn {
+    background: #ff6b81;
+    color: #fff;
+    border: none;
+    padding: 14px 34px;
+    font-size: 16px;
+    border-radius: 40px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(255, 107, 129, 0.4);
+    transition: all 0.25s ease;
+    position: relative;
+    z-index: 10;
+}
+
+
+.gift-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(255, 107, 129, 0.55);
+}
+
+
+/* Snow animation */
+.snow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(white 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: snow 10s linear infinite;
+    opacity: 0.2;
+}
+
+@keyframes snow {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 1000px;
+    }
+}
+
+/* Text Content */
+.content {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    transform: translateY(-50%);
+    color: white;
+}
+
+.content h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.content p {
+    font-size: 18px;
+    opacity: 0.85;
+}
+
+/* Loading dots */
+.dots::after {
+    content: "";
+    animation: dots 1.5s infinite;
+}
+
+@keyframes dots {
+    0% {
+        content: "";
+    }
+
+    33% {
+        content: ".";
+    }
+
+    66% {
+        content: "..";
+    }
+
+    100% {
+        content: "...";
+    }
+}
+
+/* Snow Ground */
+.ground {
+  position: absolute;
+  bottom: -90px;
+  width: 120%;
+  height: 220px;
+  left: -10%;
+  border-radius: 50% 50% 0 0;
+
+  /* 🌱 very light grass texture */
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(120, 180, 130, 0.25),
+      rgba(120, 180, 130, 0.25) 6px,
+      rgba(140, 200, 150, 0.25) 6px,
+      rgba(140, 200, 150, 0.25) 12px
+    ),
+    #f4f7fb; /* snow base */
+
+  box-shadow:
+    inset 0 20px 25px rgba(255,255,255,0.7),
+    inset 0 -30px 40px rgba(0,0,0,0.25);
+}
+/* Christmas Tree */
+.tree {
+  position: absolute;
+  bottom: 60px;              /* grass ke andar se nikle */
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Tree layers */
+.tree::before,
+.tree::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 45px solid transparent;
+  border-right: 45px solid transparent;
+}
